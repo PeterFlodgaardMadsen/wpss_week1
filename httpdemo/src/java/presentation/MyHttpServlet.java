@@ -32,19 +32,26 @@ public class MyHttpServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
         String name= request.getParameter("navn");
-        String alder=request.getParameter("alder");
+        
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
+            out.println("<title>Servlet NewServlet</title>");   
+            out.println("<link href='css/styles.css' rel='stylesheet' type='text/css'>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MyHttpServlet at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Hej "+name+" du er "+alder+" år gammel</h1>");
+            out.println("<div id='menu'><a id='kontakt' href='kontakt.html'><h1>Kontakt</h1></a></div>");
+            out.println("<div id='billede_ramme_pfm'><img id='billede' src='img/pfm.jpg' alt=''></div>");
+            out.println("<h1>Hej, Jeg hedder "+name+".</h1>");
+            out.println("<h1>Jeg er system administrator hos TDC/Yousee. Her arbejder jeg med drift af IPTV via ADSL og streaming TV via apps og web.</h1>");
+
+            out.println("<h1></h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
